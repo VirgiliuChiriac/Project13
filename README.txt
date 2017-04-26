@@ -1,3 +1,7 @@
+2B5
+Chiriac Dorin-Virgiliu
+Bivol Daniel-Silviu
+
 Project's menu: 
 http://viraltrend.store/
 
