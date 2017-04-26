@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style2.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Swanky+and+Moo+Moo" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
+
+    <body>
+
+        <div class = "menu">
+            <div class = "menu-login-middle">
+                        <a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/" class="current"><p>nostra casa</p></a>
+                    </div>
+                <nav>
+                    <a href="#" id="menu-icon"></a>
+                    <ul>
+                        <li id="logged4"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/" class="current">Home</a></li>
+                        <li id="logged3"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/profile">Profile</a></li>
+                        <li id="logged2"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/Likes">Likes</a></li>
+                        <li id="logged1"><a href="#" onclick="toggleLoggedIn()">Log out</a></li>  
+                        <li id="logged0"><a href="#">Log in</a></li>  
+                    </ul>
+                </nav>
+        </div>
+
+		<div id = "logBox" style = "z-index:10;">
+            <div id = "logInBx" class= "buttonL"><p>Log In</p></div>
+            <div id = "signUpBx" class= "buttonL"><p>Sign Up</p></div>
+
+            <div id = "logInBox">
+                <table style="width:100%;margin-top:10px;">
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Password: </p></td>
+                        <td><input type="text" name="lname"></td>
+                    </tr>
+                </table>
+
+                <div id ="logInB" class= "buttonL whiteBG" onclick="toggleLoggedIn()" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Log In</p></div>
+                <p style = "text-align:center;margin:10px;">or</p>
+                <img alt="" src = "https://jstarpass.com/resources/img/default/facebook-login.png" style = "width:100%;max-width:250px;margin-left:auto;margin-right:auto;display:block;">
+            </div>
+
+            <div id = "signUpBox">
+                <table style="width:100%;margin-top:10px;">
+                    <tr>
+                        <td><p>F-name:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>L-name: </p></td>
+                        <td><input type="text" name="lname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Password: </p></td>
+                        <td><input type="text" name="lname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Phone:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                </table>
+
+                <div id ="signUpB" class= "buttonL whiteBG" onclick="toggleLoggedIn()" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Sign Up</p></div>
+            </div>
+        </div>
+
+	
+	<div class="container">
+		<div class="imgg">
+			<img alt="" src="img.png">
+		</div>
+
+		<table id = "postsTable" style="width:100%;margin-top:10px;margin-left:auto;margin-right:auto;max-width:400px;">
+			<tr>
+				<td><p>First name:</p></td>
+				<td><input type="text" name="fname"></td>
+			</tr>
+			<tr>
+				<td><p>Last name: </p></td>
+				<td><input type="text" name="lname"></td>
+			</tr>
+			<tr>
+				<td><p>Email:</p></td>
+				<td><input type="text" name="fname"></td>
+			</tr>
+			<tr>
+				<td><p>Password: </p></td>
+				<td><input type="text" name="lname"></td>
+			</tr>
+			<tr>
+				<td><p>Phone:</p></td>
+				<td><input type="text" name="fname"></td>
+			</tr>
+		</table>
+		<div id ="updateProfile" class= "buttonL whiteBG" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Update</p></div>
+
+		<p style ="font-size:30px;margin-bottom:10px;">My posts</p>
+
+		<table style = "width: 100%;">
+			<tr>
+				<td>
+					<p>lorem ipsum lorem ipsum lorem ipsum lorem...</p>
+				</td>
+				<td>
+					<div id ="editPost-1" class= "buttonL whiteBG" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Edit</p></div>
+				</td>
+				<td>
+					<div id ="deletePost-1" class= "buttonL whiteBG" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Delete</p></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>lorem ipsum lorem ipsum...</p>
+				</td>
+				<td>
+					<div id ="editPost-2" class= "buttonL whiteBG" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Edit</p></div>
+				</td>
+				<td>
+					<div id ="deletePost-2" class= "buttonL whiteBG" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Delete</p></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>lorem ipsum lorem ipsum lorem ipsum lorem lorem ipsum lorem ipsum...</p>
+				</td>
+				<td>
+					<div id ="editPost-3" class= "buttonL whiteBG" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Edit</p></div>
+				</td>
+				<td>
+					<div id ="deletePost-3" class= "buttonL whiteBG" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Delete</p></div>
+				</td>
+			</tr>
+		</table>
+
+		<a href = "http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/nOe" style = "color:black;"><div id ="newPost" class= "buttonL whiteBG" style="border:3px solid black;margin:0px;margin-top:10px;"><p>+ New</p></div></a>
+
+	</div>
+	
+    </body>
+</html>
+
+<script src = "scripts/menu.js"></script>

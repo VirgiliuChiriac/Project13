@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <link rel="stylesheet" type="text/css" href="style2.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Swanky+and+Moo+Moo" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<style>
+	body {
+		background-image: url("back3.jpg");
+	}
+</style>    
+</head>
+    <body>
+
+        <div class = "menu">
+            <div class = "menu-login-middle">
+                        <a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/" class="current"><p>nostra casa</p></a>
+                    </div>
+                <nav>
+                    <a href="#" id="menu-icon"></a>
+                    <ul>
+                        <li id="logged4"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/" class="current">Home</a></li>
+                        <li id="logged3"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/profile">Profile</a></li>
+                        <li id="logged2"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/Likes">Likes</a></li>
+                        <li id="logged1"><a href="#" onclick="toggleLoggedIn()">Log out</a></li>  
+                        <li id="logged0"><a href="#">Log in</a></li>  
+                    </ul>
+                </nav>
+        </div>
+
+		<div id = "logBox" style = "z-index:10;">
+            <div id = "logInBx" class= "buttonL"><p>Log In</p></div>
+            <div id = "signUpBx" class= "buttonL"><p>Sign Up</p></div>
+
+            <div id = "logInBox">
+                <table style="width:100%;margin-top:10px;">
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Password: </p></td>
+                        <td><input type="text" name="lname"></td>
+                    </tr>
+                </table>
+
+                <div id ="logInB" class= "buttonL whiteBG" onclick="toggleLoggedIn()" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Log In</p></div>
+                <p style = "text-align:center;margin:10px;">or</p>
+                <img alt="" src = "https://jstarpass.com/resources/img/default/facebook-login.png" style = "width:100%;max-width:250px;margin-left:auto;margin-right:auto;display:block;">
+            </div>
+
+            <div id = "signUpBox">
+                <table style="width:100%;margin-top:10px;">
+                    <tr>
+                        <td><p>F-name:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>L-name: </p></td>
+                        <td><input type="text" name="lname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Password: </p></td>
+                        <td><input type="text" name="lname"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Phone:</p></td>
+                        <td><input type="text" name="fname"></td>
+                    </tr>
+                </table>
+
+                <div id ="signUpB" class= "buttonL whiteBG" onclick="toggleLoggedIn()" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Sign Up</p></div>
+            </div>
+        </div>
+
+
+	<body bgcolor=gray>
+
+
+	<div class="container1">
+	
+	<h1>Add your announce</h1>
+	
+
+	<div class="tip1">
+	  <h2> Type: </h2>
+	   <div class="dropdown">
+    	    <button class="dropbtn1" type="button" data-toggle="dropdown">Select one option</button>
+    		<ul class="dropdown-content">
+      			<li role="presentation"><a role="menuitem" href="#">House</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">Flat</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">Agricultural Land</a></li>
+    		</ul>
+  	   </div>
+	</div>
+
+
+	<div class="tip1">
+	  <h2> For: </h2>
+	   <div class="dropdown">
+    	    <button class="dropbtn1" id="for" type="button" data-toggle="dropdown">Select one option</button>
+    		<ul class="dropdown-content" id="for">
+      			<li role="presentation"><a role="menuitem" href="#">Sale</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">Rent</a></li>
+    		</ul>
+	   </div>
+	</div>
+	
+	
+	<div class="tip1">
+	   <h2>Ad title:</h2>
+		<input type="text" name="title">
+	</div>
+
+
+	<div class="tip1">
+	  <h2> Number of rooms: </h2>
+	    <table>
+	      <tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5+</td>
+	      </tr>
+	    </table>
+	</div>
+
+
+	<div class="tip1">
+	  <h2> Partitioning: </h2>
+	   <div class="dropdown">
+    	    <button class="dropbtn1" id="for1" type="button" data-toggle="dropdown">Select one option</button>
+    		<ul class="dropdown-content" id="for1">
+      			<li role="presentation"><a role="menuitem" href="#">Detached</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">Semi detached</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">Non-detached</a></li>
+    		</ul>
+	   </div>
+	</div>
+
+	
+	<div class="tip1">
+	  <h2> Comfort: </h2>
+	   <div class="dropdown">
+    	    <button class="dropbtn1" id="for2" type="button" data-toggle="dropdown">Select one option</button>
+    		<ul class="dropdown-content" id="for2">
+      			<li role="presentation"><a role="menuitem" href="#">1</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">2</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">3</a></li>
+    			<li role="presentation"><a role="menuitem" href="#">Luxury</a></li>
+    		</ul>
+	   </div>
+	</div>
+
+	
+	<div class="tip1">
+	   <h2>Floor:</h2>
+		<input type="text" id="floor" name="title">
+	</div>
+
+	
+	<div class="tip1">
+	   <h2 id="sur">Surface:</h2>
+		<input type="text" id="surface" name="title">
+	</div>
+
+	
+	<div class="tip1">
+	   <h2>Price:</h2>
+		<input type="text" id="floor" name="title">
+	</div>
+
+	
+	<div class="tip1">
+	   <h2>Location:</h2>
+		<input type="text" name="title">
+	</div>
+
+	<h1>Description:</h1>
+	<div class="titlu-post">
+		<textarea name="Text1" cols="60" rows="3"></textarea>
+	</div>
+
+	
+	
+
+	</div>
+	
+	
+    </body>
+</html>
+
+<script src = "scripts/menu.js"></script>
