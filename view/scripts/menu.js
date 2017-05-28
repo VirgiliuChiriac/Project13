@@ -3,13 +3,11 @@ function logedMenu(){
     if(loggedIn==0){
         document.getElementById("logged0").style.display="inline-block";
         document.getElementById("logged1").style.display="none";
-        document.getElementById("logged2").style.display="none";
         document.getElementById("logged3").style.display="none";
         document.getElementById("logged4").style.display="none";
     } else {
         document.getElementById("logged0").style.display="none";
         document.getElementById("logged1").style.display="inline-block";
-        document.getElementById("logged2").style.display="inline-block";
         document.getElementById("logged3").style.display="inline-block";
         document.getElementById("logged4").style.display="inline-block";
     }

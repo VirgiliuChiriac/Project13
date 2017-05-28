@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Rokkitt" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
+    <body>
+
+        <div class = "menu">
+            <div class = "menu-login-middle">
+                <a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/" class="current"><p>nostra casa</p></a>
+            </div>
+        </div>
+
+
+        <div class= "filter-button whiteBG"><p>Filters</p></div>
+        <div class= "results-button whiteBG"><p>Results</p></div>
+        <div class = "filters">
+            <select id = "oras">
+                <option value="asc">Pret ascendent</option>
+                <option value="desc">Pret descendent</option>
+            </select>
+            <select id = "tip">
+                <option value="all">Tip</option>
+		<option value="Apartament/Garsoniera">Apartament/Garsoniera</option>
+		<option value="Casa/Vila">Casa/Vila</option>
+		<option value="Teren de constructii">Teren Constructii</option>
+		<option value="Teren agricol">Teren Agricol</option>
+            </select>
+            <select id = "achizitie">
+                <option value="all">Achizitie</option>
+		<option value="Vanzare">Vanzare</option>
+		<option value="Inchiriere">Inchiriere</option>
+            </select>
+            <select id = "nr-camere">
+                <option value="all">Nr camere</option>
+		<option value="1">1 camera</option>
+		<option value="2">2 camere</option>
+		<option value="3">3 camere</option>
+		<option value="4">4 camere</option>
+		<option value="5">5 camere</option>
+            </select>
+            <select id = "nr_bai">
+                <option value="all">Nr bai</option>
+		<option value="1">1 baie</option>
+		<option value="2">2 bai</option>
+            </select>
+            <select id = "confort">
+                <option value="all">Confort</option>
+		<option value="1">Confort 1</option>
+		<option value="2">Confort 2</option>
+		<option value="3">Confort 3</option>
+		<option value="4">Confort 4</option>
+            </select>
+            <select id = "etaj">
+                <option value="all">Etaj</option>
+		<option value="1">Etaj 1</option>
+		<option value="2">Etaj 2</option>
+		<option value="3">Etaj 3</option>
+		<option value="4">Etaj 4</option>
+		<option value="5">Etaj 5</option>
+		<option value="6">Etaj 6</option>
+		<option value="7">Etaj 7</option>
+		<option value="8">Etaj 8</option>
+		<option value="9">Etaj 9</option>
+		<option value="10">Etaj 10</option>
+            </select>
+            <select id = "clasificare">
+                <option value="all">Clasificare</option>
+		<option value="Intravilan">Intravilan</option>
+		<option value="Extravilan">Extravilan</option>
+            </select>
+            <select id = "tipAgr">
+                <option value="all">Tip</option>
+		<option value="Livada">Livada</option>
+		<option value="Teren Arabil">Teren Arabil</option>
+            </select>
+        </div>
+
+        <div id = "results">
+            <div class="result" id = "results2" style = "min-height: 0px;"></div>
+            <table style = "margin:30px auto 30px auto;">
+                <tr>
+                    <td>ID:</td>
+                    <td><input id = "inputID" type="text" name="id"></td>
+                    <td><button onclick="showID()">Show</button></td>
+                    <td><button onclick="softdeleteID()">Soft Delete</button></td>
+                    <td><button onclick="deleteID()">Delete</button></td>
+                </tr>
+            </table>
+            <div class="result" id = "results3" style = "min-height: 0px;"></div>
+        </div>
+
+    </body>
+</html>
+
+<script src="scripts/bd.js"> </script>

@@ -40,26 +40,26 @@ CREATE TABLE produs(
 
 --apartament
 insert into produs
-    values (0, 1, 'Iasi', 'Apartament', 'Inchiriere','In stare buna','47.1584549','27.601441799999975', 350,
+    values (0, 1, 'San Francisco', 'Apartament', 'Inchiriere','In stare buna','37.769266','-122.423955', 350,
     '3','2','110 mp', 'lux', '1998', '4', 'caramida', '2','','','','');
 
 insert into produs
-    values (1, 1, 'Iasi', 'Apartament', 'Vanzare','In stare foarte buna','47.1584549','27.601441799999975', 49000,
+    values (1, 1, 'San Francisco', 'Apartament', 'Vanzare','In stare foarte buna','37.783266','-122.433755', 49000,
     '2','1','80 mp', '3', '2004', '6', 'caramida', '1','','','','');
 
 --casa/vila
 insert into produs
-    values (2, 2, 'Iasi', 'Casa/Vila', 'Vanzare','Petrecerile aici se tin','47.1584549','27.601441799999975', 120000,
+    values (2, 2, 'San Francisco', 'Casa/Vila', 'Vanzare','Petrecerile aici se tin','37.731266','-122.442355', 120000,
     '6','3','240 mp', '2', '2004', '2', 'beton', '','1000mp','4m','','');
 
 --teren constructii
 insert into produs
-    values (3, 3, 'Iasi', 'Teren Constructii', 'Vanzare','Locul tau preferat','47.1584549','27.601441799999975', 40,
+    values (3, 3, 'San Francisco', 'Teren Constructii', 'Vanzare','Locul tau preferat','37.721866','-122.453655', 40,
     '','','','','','','','','2000mp','2m','Intravilan','');
 
 --teren agricol
 insert into produs
-    values (4, 3, 'Iasi', 'Teren Agricol', 'Vanzare','Locul tau preferat','47.1584549','27.601441799999975', 10,
+    values (4, 3, 'San Francisco', 'Teren Agricol', 'Vanzare','Locul tau preferat','37.743266','-122.464355', 10,
     '','','','','','','','','6000mp','2m','Intravilan','Livada');
 
 

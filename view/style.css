@@ -71,7 +71,7 @@ nav ul li {
 
 body, option, select{
     margin: 0px;
-    font-family: 'Swanky and Moo Moo', cursive;
+    font-family: 'Rokkitt', serif;
 }
 
 a{
@@ -223,4 +223,8 @@ input{
 
 #logBox .whiteBG{
     margin: 0px;
+}
+
+#signUpBx, #newPost{
+    width: 70px;
 }

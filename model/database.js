@@ -23,8 +23,8 @@ module.exports = function() {
                 console.error(err.message);
                 return;
             }
-
-            connection.execute(
+		
+	connection.execute(
             "SELECT unique oras FROM produs order by oras asc",
 
             function(err, result)
@@ -48,6 +48,7 @@ module.exports = function() {
                 });*/
 
                 message.push(result.rows);
+            
 
                 connection.execute(
                 "SELECT unique tip FROM produs order by tip asc",
