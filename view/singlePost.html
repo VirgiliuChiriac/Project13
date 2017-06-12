@@ -7,52 +7,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Rokkitt" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-        <style>
-            .container{
-                padding: 30px;
-            }
-            .container p{
-                margin-top: 10px; 
-                display: inline-block;
-                width: 300px;
-            }
-            .container p:nth-child(2n){
-                width: calc(100% - 300px);
-                min-width: 300px;
-            }
-
-            .container h1{
-                text-align: center;
-                margin:0px 0px 20px 0px;
-            }
-        </style>
     </head>
 
     <body>
-
-        <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-            appId      : '1431720227051204',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v2.8'
-            });
-            FB.AppEvents.logPageView();   
-            $(document).trigger('fbload');
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script>
-
-        <div id="close" style="position:fixed;width:100%;height:100%;z-index:1;"></div>
 
         <div class = "menu">
             <div class = "menu-login-middle">
@@ -63,13 +20,13 @@
                     <ul>
                         <li id="logged4"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/" class="current">Home</a></li>
                         <li id="logged3"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/profile">Profile</a></li>
-                        <li id="logged1"><a href="http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/" onclick="toggleLoggedIn()">Log out</a></li>  
+                        <li id="logged1"><a href="#" onclick="toggleLoggedIn()">Log out</a></li>  
                         <li id="logged0"><a href="#">Log in</a></li>  
                     </ul>
                 </nav>
         </div>
 
-		<div id = "logBox">
+		<div id = "logBox" style = "z-index:10;">
             <div id = "logInBx" class= "buttonL"><p>Log In</p></div>
             <div id = "signUpBx" class= "buttonL"><p>Sign Up</p></div>
 
@@ -77,46 +34,40 @@
                 <table style="width:100%;margin-top:10px;">
                     <tr>
                         <td><p>Email:</p></td>
-                        <td><input id = "in-email" type="text" name="fname"></td>
+                        <td><input type="text" name="fname"></td>
                     </tr>
                     <tr>
                         <td><p>Password: </p></td>
-                        <td><input id = "in-pass" type="password" name="lname"></td>
+                        <td><input type="text" name="lname"></td>
                     </tr>
                 </table>
 
-                <div id ="logInB" class= "buttonL whiteBG" onclick="LogIn()" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Log In</p></div>
+                <div id ="logInB" class= "buttonL whiteBG" onclick="toggleLoggedIn()" style="border:3px solid black;margin-top:10px;display:block;margin-left:auto;margin-right:auto;"><p>Log In</p></div>
                 <p style = "text-align:center;margin:10px;">or</p>
-                <div style="margin:auto;width:254px;">
-                    <div onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-                <!--<fb:login-button 
-                scope="public_profile,email"
-                onlogin="checkLoginState();">
-                </fb:login-button>-->
-                </div>
+                <img alt="" src = "https://jstarpass.com/resources/img/default/facebook-login.png" style = "width:100%;max-width:250px;margin-left:auto;margin-right:auto;display:block;">
             </div>
 
             <div id = "signUpBox">
                 <table style="width:100%;margin-top:10px;">
                     <tr>
                         <td><p>F-name:</p></td>
-                        <td><input id = "up-fname" type="text" name="fname"></td>
+                        <td><input type="text" name="fname"></td>
                     </tr>
                     <tr>
                         <td><p>L-name: </p></td>
-                        <td><input id = "up-lname" type="text" name="lname"></td>
+                        <td><input type="text" name="lname"></td>
                     </tr>
                     <tr>
-                        <td><p>*Email:</p></td>
-                        <td><input id = "up-email" type="text" name="fname"></td>
+                        <td><p>Email:</p></td>
+                        <td><input type="text" name="fname"></td>
                     </tr>
                     <tr>
-                        <td><p>*Password: </p></td>
-                        <td><input id = "up-pass" type="password" name="lname"></td>
+                        <td><p>Password: </p></td>
+                        <td><input type="text" name="lname"></td>
                     </tr>
                     <tr>
                         <td><p>Phone:</p></td>
-                        <td><input id = "up-phone" type="text" name="fname"></td>
+                        <td><input type="text" name="fname"></td>
                     </tr>
                 </table>
 
@@ -129,13 +80,28 @@
 
 
 
-        <div class="container" id = "singlePostResult">
-            <h1>Single Post Complete Information</h1>
-        </div>
+	<div class="container">
 
-        <div class="container" id = "singlePostResultOwner" style="margin-top:10px;">
-            <h1>Owner of the post</h1>
-        </div>
+		<p style ="font-size:30px;margin-bottom:10px;margin-top:10px;">Liked posts:</p>
+
+		<table style = "width: 100%;">
+			<tr>
+				<td>
+					<p>1. lorem ipsum lorem ipsum lorem ipsum lorem...</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>2. lorem ipsum lorem ipsum...</p>
+				</td>	
+			</tr>
+			<tr>
+				<td>
+					<p>3. lorem ipsum lorem ipsum lorem ipsum lorem lorem ipsum lorem ipsum...</p>
+				</td>	
+			</tr>
+		</table>
+	</div>
     </body>
 </html>
 
