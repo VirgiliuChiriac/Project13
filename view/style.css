@@ -155,8 +155,9 @@ select{
     margin-top: 40px;
     border: 5px solid black;
     border-radius: 40px 60px 30px 30px;
-    min-height: 90px;
     background: white;
+    color:black;
+    margin-bottom: 10px;
 }
 
 .result:first-child{
@@ -211,7 +212,7 @@ select{
     top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-   z-index: -1;
+   z-index: 2;
 }
 
 input{
@@ -227,4 +228,8 @@ input{
 
 #signUpBx, #newPost{
     width: 70px;
+}
+
+#profilePostsTable td{
+    border-bottom: 1px solid black;
 }

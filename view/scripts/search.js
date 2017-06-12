@@ -1,4 +1,4 @@
-var address = "http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/"
+var address = "http://ec2-35-165-78-223.us-west-2.compute.amazonaws.com/";
 
 function filters( responseData ) {
     // Do what you want with the data
@@ -51,67 +51,66 @@ function showSearch(respData){
     while (node.hasChildNodes()) {
         node.removeChild(node.firstChild);
     }
+
     for(var i = 0; i<respData.length;i++){
         var beach = [];
         var node2 = document.createElement("DIV");
         node2.className += 'result';
+
+        var productID;
 
         for(var j = 0; j<respData[i].length;j++){
             if(respData[i][j] !=null){
                 var txt = document.createElement("p");
                 var node;
                 switch (j){
-                    case 0:
-                        node = document.createTextNode("id produs: " + respData[i][j]);beach.push(respData[i][j]); break;
-                    case 1:
-                        node = document.createTextNode("id user: " + respData[i][j]); break;
-                        case 2:
-                        node = document.createTextNode("oras: " + respData[i][j]); break;
-                        case 3:
-                        node = document.createTextNode( "tip: " + respData[i][j]); break;
-                        case 4:
-                        node = document.createTextNode( "achizitie: " + respData[i][j]); break;
-                        case 5:
-                        node = document.createTextNode( "descriere: " + respData[i][j]); break;
-                        case 6:
-                        node = document.createTextNode( "latitudine: " + respData[i][j]);beach.push(respData[i][j]); break;
-                        case 7:
-                        node = document.createTextNode("longitudine: " + respData[i][j]);beach.push(respData[i][j]); break;
-                        case 8:
-                        node = document.createTextNode("pret: " + respData[i][j]); break;
-                        case 9:
-                        node = document.createTextNode("nr camere: " + respData[i][j]); break;
-                        case 10:
-                        node = document.createTextNode( "nr bai: " + respData[i][j]); break;
-                        case 11:
-                        node = document.createTextNode("suprafata utila: " + respData[i][j]); break;
-                        case 12:
-                        node = document.createTextNode("confort: " + respData[i][j]); break;
-                        case 13:
-                        node = document.createTextNode( "vechime: " + respData[i][j]); break;
-                        case 14:
-                        node = document.createTextNode("niveluri imbil: " + respData[i][j]); break;
-                        case 15:
-                        node = document.createTextNode("structura rezistenta: " + respData[i][j]); break;
-                        case 16:
-                        node = document.createTextNode("etaj: " + respData[i][j]); break;
-                        case 17:
-                        node = document.createTextNode( "suprafata teren: " + respData[i][j]); break;
-                        case 18:
-                        node = document.createTextNode("front stradal: " + respData[i][j]); break;
-                        case 19:
-                        node = document.createTextNode("clasificare: " + respData[i][j]); break;
-                        case 20:
-                        node = document.createTextNode("tip agricol: " + respData[i][j]); break;
+                    case 0: node = "id produs: " + respData[i][j];productID = ""+respData[i][j];beach.push(respData[i][j]); break;
+                    case 1: node = "id user: " + respData[i][j]; break;
+                    case 2: node = "oras: " + respData[i][j]; break;
+                    case 3: node =  "tip: " + respData[i][j];beach.push(respData[i][j]); break;
+                    case 4: node =  "achizitie: " + respData[i][j];beach.push(respData[i][j]); break;
+                    case 5: node =  "descriere: " + respData[i][j]; break;
+                    case 6: node =  "latitudine: " + respData[i][j];beach.push(respData[i][j]); break;
+                    case 7: node = "longitudine: " + respData[i][j];beach.push(respData[i][j]); break;
+                    case 8: 
+                      var info;
+                      if(respData[i][4]=="Inchiriere"){
+                          info = "€/month";
+                      } else {
+                          if( respData[i][3]=="Apartament" || respData[i][3]=="Casa/Vila" ){
+                              info = "€";
+                          } else {
+                              info = "€/m<sup>2</sup>";
+                          }
+                      }
+                      node = "pret: " + respData[i][j] + info;beach.push(respData[i][j]); break;
+                    case 9: node = "nr camere: " + respData[i][j]; break;
+                    case 10: node =  "nr bai: " + respData[i][j]; break;
+                    case 11: node = "suprafata utila: " + respData[i][j]; break;
+                    case 12: node = "confort: " + respData[i][j]; break;
+                    case 13: node =  "vechime: " + respData[i][j]; break;
+                    case 14: node = "niveluri imbil: " + respData[i][j]; break;
+                    case 15: node = "structura rezistenta: " + respData[i][j]; break;
+                    case 16: node = "etaj: " + respData[i][j]; break;
+                    case 17: node =  "suprafata teren: " + respData[i][j]; break;
+                    case 18: node = "front stradal: " + respData[i][j]; break;
+                    case 19: node = "clasificare: " + respData[i][j]; break;
+                    case 20: node = "tip agricol: " + respData[i][j]; break;
                 }
-                txt.appendChild(node);
-                node2.appendChild(txt);
+                if(j == 2 || j == 3 || j == 4 || j == 8 || j == 17 || j == 11 || j == 13){
+                  txt.innerHTML = node;
+                  node2.appendChild(txt);
+                }
             }
             beaches.push(beach);
         }
-        setMarkers(map);
-        document.getElementById("results").appendChild(node2);
+        var aTag = document.createElement('a');
+        aTag.setAttribute('href',address+"singlePost?id="+productID);
+        aTag.appendChild(node2);
+
+        document.getElementById("results").appendChild(aTag);
     }
+    setMarkers(map); 
 }
 
 function rootShowSearch(){
@@ -124,19 +123,20 @@ function rootShowSearch(){
     var etaj = document.getElementById("etaj");
     var clasif = document.getElementById("clasificare");
     var tipAgr = document.getElementById("tipAgr");
-        $.post(address + "search",{
-            oras: oras.options[oras.selectedIndex].value,
-            tip: tip.options[tip.selectedIndex].value,
-            achizitie: achizitie.options[achizitie.selectedIndex].value,
-            nr_cam: nr_camere.options[nr_camere.selectedIndex].value,
-            nr_bai: nr_bai.options[nr_bai.selectedIndex].value,
-            conf: conf.options[conf.selectedIndex].value,
-            etaj: etaj.options[etaj.selectedIndex].value,
-            clasif: clasif.options[clasif.selectedIndex].value,
-            tipArr: tipAgr.options[tipAgr.selectedIndex].value
-        }, function(data){
+    $.post(address + "search",{
+        oras: oras.options[oras.selectedIndex].value,
+        tip: tip.options[tip.selectedIndex].value,
+        achizitie: achizitie.options[achizitie.selectedIndex].value,
+        nr_cam: nr_camere.options[nr_camere.selectedIndex].value,
+        nr_bai: nr_bai.options[nr_bai.selectedIndex].value,
+        conf: conf.options[conf.selectedIndex].value,
+        etaj: etaj.options[etaj.selectedIndex].value,
+        clasif: clasif.options[clasif.selectedIndex].value,
+        tipArr: tipAgr.options[tipAgr.selectedIndex].value
+    }, function(data){
+        respDataMarker = data;
         showSearch(data);
-        });
+    });
 
     document.getElementById("nr-camere").style.display = "none";
     document.getElementById("nr_bai").style.display = "none";
@@ -303,10 +303,6 @@ function initMap() {
           data: getPoints(),
           map: map
         });
-
-	setMarkers(map);
-
-
 
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
@@ -891,7 +887,6 @@ function initMap() {
 
       var markers = [];
 
-
       function setMarkers(map) {
         // Adds markers to the map.
 
@@ -905,19 +900,47 @@ function initMap() {
           coords: [1, 1, 1, 20, 18, 20, 18, 1],
           type: 'poly'
         };
+
+        var infowindow =  new google.maps.InfoWindow({
+          content: 'Hello World!',
+          map: map
+        });
+
         for (var i = 0; i < beaches.length; i++) {
-          var beach = beaches[i];
-          console.log(parseFloat(beach[1])+"  "+parseFloat(beach[2]));
-          var marker = new google.maps.Marker({
-            position: {lat: parseFloat(beach[1]), lng: parseFloat(beach[2])},
-            map: map,
-            shape: shape,
-            url: '?id='+beach[0]
-          });
-          markers.push(marker);
-          google.maps.event.addListener(marker, 'click', function() {
-              window.location.href = this.url;
-          });
+            var beach = beaches[i];
+            var info = "<p>Tip: "+beach[1] + 
+                  "</p><p>Achizitie: " + beach[2] 
+                  + "</p><p>Pret: " + beach[5];
+            if(beach[2]=="Inchiriere"){
+                info = info + "€/month</p>"
+            } else {
+                if( beach[1]=="Apartament" || beach[1]=="Casa/Vila" ){
+                    info = info + "€</p>"
+                } else {
+                    info = info + "€/m<sup>2</sup></p>"
+                }
+            }
+
+            console.log(info);
+            var marker = new google.maps.Marker({
+                position: {lat: parseFloat(beach[3]), lng: parseFloat(beach[4])},
+                map: map,
+                shape: shape,
+                url: 'singlePost?id='+beach[0],
+                title: info
+            });
+
+            marker.addListener('mouseover', function() {
+                infowindow.setContent(this.getTitle());
+                infowindow.open(map, this);
+            });
+            marker.addListener('mouseout', function() {
+                infowindow.close();
+            });
+
+            markers.push(marker);
+            google.maps.event.addListener(marker, 'click', function() {
+                window.location.href = this.url;
+            });
         }
       }
-

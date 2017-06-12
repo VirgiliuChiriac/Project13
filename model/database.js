@@ -395,7 +395,8 @@ module.exports = function() {
     }
 
     this.login = function(res,user,pass){
-            var oracledb = require('oracledb');
+
+        var oracledb = require('oracledb');
         var dbConfig = require('./dbconfig.js');
 
         // Get a non-pooled connection
@@ -413,7 +414,314 @@ module.exports = function() {
             }
 
         connection.execute(
-            "login( " + user + "," + pass + ")",
+            "select id_user from users where email = '" + user + "' and parola = '" + pass + "'",
+
+            function(err, result)
+            {
+                if (err) {
+                    console.error(err.message);
+                    connection.close(
+                        function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        }
+                    });
+                    return;
+                }
+                console.log(result.rows);
+                connection.close(
+                    function(err) {
+                    if (err) {
+                        console.error(err.message);
+                    }
+                });
+                 
+                res.send(result.rows[0]);
+            });
+        });
+    }
+
+    this.signUp = function(res,fname,lname,user,pass,phone){
+
+        var oracledb = require('oracledb');
+        var dbConfig = require('./dbconfig.js');
+
+        // Get a non-pooled connection
+        oracledb.getConnection(
+        {
+            user          : dbConfig.user,
+            password      : dbConfig.password,
+            connectString : dbConfig.connectString
+        },
+        function(err, connection)
+        {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+
+        connection.execute(
+            "select count(*) from users where email = '" + user+"'",
+
+            function(err, result)
+            {
+                if (err) {
+                    console.error(err.message);
+                    connection.close(
+                        function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        }
+                    });
+                    return;
+                }
+                console.log(result.rows[0][0]);
+                if(0 == result.rows[0][0]){
+                
+                
+                connection.execute(
+                    "select count(*) from users",
+
+                    function(err, result)
+                    {
+                        if (err) {
+                            console.error(err.message);
+                            connection.close(
+                                function(err) {
+                                if (err) {
+                                    console.error(err.message);
+                                }
+                            });
+                            return;
+                        }
+                        console.log(result.rows[0][0]);
+                        var count = result.rows[0][0];
+                        
+                        
+                        connection.execute(
+                            "insert into users values("+count + 
+                                ",'"+ fname +"'," +
+                                "'"+ lname +"'," +
+                                "'"+ user +"'," +
+                                "'"+ pass +"'," +
+                                "'"+ phone +"'" 
+                                +")",
+                            [],
+                            { autoCommit: true}, 
+
+                            function(err, result)
+                            {
+                                if (err) {
+                                    console.error(err.message);
+                                    connection.close(
+                                        function(err) {
+                                        if (err) {
+                                            console.error(err.message);
+                                        }
+                                    });
+                                    return;
+                                }
+                                console.log(result.rows);
+                                connection.execute(
+                                    "select id_user from users where email = '" + user + "' and parola = '" + pass + "'",
+
+                                    function(err, result)
+                                    {
+                                        if (err) {
+                                            console.error(err.message);
+                                            connection.close(
+                                                function(err) {
+                                                if (err) {
+                                                    console.error(err.message);
+                                                }
+                                            });
+                                            return;
+                                        }
+                                        console.log(result.rows);
+                                        connection.close(
+                                            function(err) {
+                                            if (err) {
+                                                console.error(err.message);
+                                            }
+                                        });
+                                        res.send(result.rows[0]);
+                                    });
+                                });
+                            
+                        });
+                    } else {
+                        res.send([]);
+                    }
+                });
+            
+        });
+    }
+
+    this.singlePostValues = function(res,id){
+
+        var oracledb = require('oracledb');
+        var dbConfig = require('./dbconfig.js');
+
+        // Get a non-pooled connection
+        oracledb.getConnection(
+        {
+            user          : dbConfig.user,
+            password      : dbConfig.password,
+            connectString : dbConfig.connectString
+        },
+        function(err, connection)
+        {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+
+        connection.execute(
+            "SELECT * FROM produs where id_produs = " + id,
+
+            function(err, result)
+            {
+                if (err) {
+                    console.error(err.message);
+                    connection.close(
+                        function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        }
+                    });
+                    return;
+                }
+                console.log(result.rows);
+                connection.close(
+                    function(err) {
+                    if (err) {
+                        console.error(err.message);
+                    }
+                });
+                res.send(result.rows);
+            });
+        });
+    }
+
+    this.getProfile = function(res,id){
+
+        var oracledb = require('oracledb');
+        var dbConfig = require('./dbconfig.js');
+
+        // Get a non-pooled connection
+        oracledb.getConnection(
+        {
+            user          : dbConfig.user,
+            password      : dbConfig.password,
+            connectString : dbConfig.connectString
+        },
+        function(err, connection)
+        {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+
+        connection.execute(
+            "SELECT * FROM users where id_user = " + id,
+
+            function(err, result)
+            {
+                if (err) {
+                    console.error(err.message);
+                    connection.close(
+                        function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        }
+                    });
+                    return;
+                }
+                console.log(result.rows);
+                connection.close(
+                    function(err) {
+                    if (err) {
+                        console.error(err.message);
+                    }
+                });
+                res.send(result.rows);
+            });
+        });
+    }
+
+    this.updateProfile = function(res,id,fname,lname,pass,phone){
+
+        var oracledb = require('oracledb');
+        var dbConfig = require('./dbconfig.js');
+
+        // Get a non-pooled connection
+        oracledb.getConnection(
+        {
+            user          : dbConfig.user,
+            password      : dbConfig.password,
+            connectString : dbConfig.connectString
+        },
+        function(err, connection)
+        {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+
+        connection.execute(
+            "update users set "+
+            "prenume='"+fname+"',"+ 
+            "nume='"+lname+"',"+
+            "parola='"+pass+"',"+
+            "telefon='"+phone+"'"+
+            " where id_user = " + id,
+            [],{ autoCommit: true},
+
+            function(err, result)
+            {
+                if (err) {
+                    console.error(err.message);
+                    connection.close(
+                        function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        }
+                    });
+                    return;
+                }
+                console.log(result.rows);
+                connection.close(
+                    function(err) {
+                    if (err) {
+                        console.error(err.message);
+                    }
+                });
+                res.send("success");
+            });
+        });
+    }
+
+    this.getProfilePosts = function(res,id){
+
+        var oracledb = require('oracledb');
+        var dbConfig = require('./dbconfig.js');
+
+        // Get a non-pooled connection
+        oracledb.getConnection(
+        {
+            user          : dbConfig.user,
+            password      : dbConfig.password,
+            connectString : dbConfig.connectString
+        },
+        function(err, connection)
+        {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+
+        connection.execute(
+            "SELECT * FROM produs where id_user = " + id,
 
             function(err, result)
             {
